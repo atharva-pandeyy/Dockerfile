@@ -1,13 +1,13 @@
-FROM n8nio/n8n:latest
+FROM n8nio/n8n
 
 ENV N8N_BASIC_AUTH_ACTIVE=true
 ENV N8N_BASIC_AUTH_USER=admin
 ENV N8N_BASIC_AUTH_PASSWORD=yourpassword
-ENV N8N_HOST=0.0.0.0
 ENV N8N_PORT=5678
+ENV N8N_HOST=0.0.0.0
 ENV GENERIC_TIMEZONE=Asia/Kolkata
 
 EXPOSE 5678
 
-# Use full path to n8n inside Docker image
-CMD ["tini", "--", "n8n"]
+ENTRYPOINT ["tini", "--"]
+CMD ["n8n"]
